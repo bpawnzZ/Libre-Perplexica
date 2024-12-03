@@ -1,8 +1,6 @@
 import { atom } from 'recoil';
 
-export default {
-  webSearch: atom({
-    key: 'webSearch',
-    default: false,
-  }),
-};
+export const webSearchState = atom<boolean>({
+  key: 'webSearchState',
+  default: false,
+});
