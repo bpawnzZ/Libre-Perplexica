@@ -129,6 +129,7 @@ const ChatForm = ({ index = 0 }) => {
       ...data,
       ...(showWebSearchToggle ? { webSearch } : {}),
     };
+    console.log('Submitting message with data:', message);
     submitMessage(message);
   };
 

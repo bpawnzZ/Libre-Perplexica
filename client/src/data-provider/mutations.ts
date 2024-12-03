@@ -13,7 +13,7 @@ import type { InfiniteData, UseMutationResult } from '@tanstack/react-query';
 import useUpdateTagsInConvo from '~/hooks/Conversations/useUpdateTagsInConvo';
 import { updateConversationTag } from '~/utils/conversationTags';
 import { normalizeData } from '~/utils/collection';
-import store from '~/store';
+import { defaultPreset } from '~/store';
 import {
   useConversationTagsQuery,
   useConversationsInfiniteQuery,
@@ -232,7 +232,7 @@ export const useArchiveConvoMutation = (options?: t.ArchiveConvoOptions) => {
             return normalizeData(
               isArchived
                 ? addConversation(convoData, _data)
-                : deleteConversation(convoData, conversationId),
+                : deleteConversation(conversationId, _data),
               'conversations',
               pageSize,
             );

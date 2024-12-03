@@ -3,36 +3,16 @@ import { atomWithLocalStorage } from '~/store/utils';
 import { PromptsEditorMode } from '~/common/types';
 
 // Static atoms without localStorage
-const staticAtoms = {
-  // `name` filter
-  promptsName: atom<string>({ key: 'promptsName', default: '' }),
-  // `category` filter
-  promptsCategory: atom<string>({ key: 'promptsCategory', default: '' }),
-  // `pageNumber` filter
-  promptsPageNumber: atom<number>({ key: 'promptsPageNumber', default: 1 }),
-  // `pageSize` filter
-  promptsPageSize: atom<number>({ key: 'promptsPageSize', default: 10 }),
-};
+export const promptsName = atom<string>({ key: 'promptsName', default: '' });
+export const promptsCategory = atom<string>({ key: 'promptsCategory', default: '' });
+export const promptsPageNumber = atom<number>({ key: 'promptsPageNumber', default: 1 });
+export const promptsPageSize = atom<number>({ key: 'promptsPageSize', default: 10 });
 
 // Atoms with localStorage
-const localStorageAtoms = {
-  autoSendPrompts: atomWithLocalStorage('autoSendPrompts', true),
-  alwaysMakeProd: atomWithLocalStorage('alwaysMakeProd', true),
-  // Editor mode
-  promptsEditorMode: atomWithLocalStorage<PromptsEditorMode>(
-    'promptsEditorMode',
-    PromptsEditorMode.SIMPLE,
-  ),
-};
-
-export default { ...staticAtoms, ...localStorageAtoms };
-
-export const promptsPageSize = atom<number>({
-  key: 'promptsPageSize',
-  default: 10,
-});
-
-export const promptsCategory = atom<string>({
-  key: 'promptsCategory',
-  default: '',
-});
+export const autoSendPrompts = atomWithLocalStorage('autoSendPrompts', true);
+export const alwaysMakeProd = atomWithLocalStorage('alwaysMakeProd', true);
+// Editor mode
+export const promptsEditorMode = atomWithLocalStorage<PromptsEditorMode>(
+  'promptsEditorMode',
+  PromptsEditorMode.Create,
+);

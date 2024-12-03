@@ -2,10 +2,10 @@ import { useRecoilState } from 'recoil';
 import { useRef, useEffect } from 'react';
 import type { TShowToast } from '~/common';
 import { NotificationSeverity } from '~/common';
-import store from '~/store';
+import { toastState } from '~/store';
 
 export default function useToast(showDelay = 100) {
-  const [toast, setToast] = useRecoilState(store.toastState);
+  const [toast, setToast] = useRecoilState(toastState);
   const showTimerRef = useRef<number | null>(null);
   const hideTimerRef = useRef<number | null>(null);
 
@@ -38,6 +38,7 @@ export default function useToast(showDelay = 100) {
     // Timeout to show the toast
     showTimerRef.current = window.setTimeout(() => {
       setToast({
+        ...toast,
         open: true,
         message,
         severity: (status as NotificationSeverity) ?? severity,

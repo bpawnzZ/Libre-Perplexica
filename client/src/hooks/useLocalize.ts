@@ -1,15 +1,15 @@
-import { useCallback } from 'react';
 import { useRecoilValue } from 'recoil';
-import { localize } from '~/localization/Translation';
-import store from '~/store';
+import { lang } from '~/store/lang';
 
-export default function useLocalize() {
-  const lang = useRecoilValue(store.lang);
+const useLocalize = () => {
+  const language = useRecoilValue(lang);
+  // Assuming localize is a function that takes a string
+  const localize = (key: string) => {
+    // Implementation of localize function
+    return key; // Placeholder implementation
+  };
 
-  const memoizedLocalize = useCallback(
-    (phraseKey: string, ...values: string[]) => localize(lang, phraseKey, ...(values ?? [])),
-    [lang], // Only recreate the function when `lang` changes
-  );
+  return localize(language);
+};
 
-  return memoizedLocalize;
-}
+export default useLocalize;
