@@ -1,6 +1,6 @@
 import { atom } from 'recoil';
 import { atomWithLocalStorage } from '~/store/utils';
-import { PromptsEditorMode } from '~/common';
+import { PromptsEditorMode } from '~/common/types';
 
 // Static atoms without localStorage
 const staticAtoms = {
