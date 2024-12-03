@@ -1,5 +1,6 @@
 import { useRecoilState } from 'recoil';
 import { audioIdState } from '~/store/audioId'; // Adjust path based on your project structure
+import { webSearchState } from '~/store/webSearch';
 import { AudioState } from '~/common/types'; // Adjust path based on your project structure
 
 function usePauseGlobalAudio(index = 0) {

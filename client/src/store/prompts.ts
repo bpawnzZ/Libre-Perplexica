@@ -26,3 +26,19 @@ const localStorageAtoms = {
 };
 
 export default { ...staticAtoms, ...localStorageAtoms };
+import { atom } from 'recoil';
+
+export const promptsName = atom<string>({
+  key: 'promptsName',
+  default: '',
+});
+
+export const promptsPageSize = atom<number>({
+  key: 'promptsPageSize',
+  default: 10,
+});
+
+export const promptsCategory = atom<string>({
+  key: 'promptsCategory',
+  default: '',
+});
