@@ -12,7 +12,7 @@ import {
   deletePromptGroup,
   removeGroupFromAll,
 } from '~/utils';
-import store from '~/store';
+import { promptsName, promptsPageSize, promptsCategory } from '~/store';
 
 export const useUpdatePromptGroup = (
   options?: t.UpdatePromptGroupOptions,
