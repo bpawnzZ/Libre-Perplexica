@@ -117,6 +117,7 @@
   },
   "dependencies": {
     "express": "^4.21.1",
+    "librechat-data-provider": "^0.7.56",
     "recoil": "^0.7.7"
   }
 }

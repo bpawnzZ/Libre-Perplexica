@@ -1,7 +1,7 @@
 import { useRecoilValue } from 'recoil';
 import { lang } from '~/store/lang';
 
-const useLocalize = () => {
+export const useLocalize = () => {
   const language = useRecoilValue(lang);
   // Assuming localize is a function that takes a string
   const localize = (key: string) => {
@@ -11,5 +11,3 @@ const useLocalize = () => {
 
   return localize(language);
 };
-
-export default useLocalize;
