@@ -5,8 +5,9 @@ dotenv.config();
 
 const PERPLEXICA_API_BASE_URL = process.env.PERPLEXICA_API_BASE_URL;
 const PERPLEXICA_API_KEY = process.env.PERPLEXICA_API_KEY;
+const PERPLEXICA_CUSTOM_OPENAI_KEY = process.env.PERPLEXICA_CUSTOM_OPENAI_KEY;
 
-if (!PERPLEXICA_API_BASE_URL || !PERPLEXICA_API_KEY) {
+if (!PERPLEXICA_API_BASE_URL || !PERPLEXICA_API_KEY || !PERPLEXICA_CUSTOM_OPENAI_KEY) {
   throw new Error('Perplexica API credentials are not set in environment variables.');
 }
 
@@ -51,7 +52,7 @@ export const performPerplexicaSearch = async (
     chatModel: {
       provider: 'custom_openai',
       model: 'qwen/qwen-2.5-72b-instruct',
-      customOpenAIKey: 'sk-FiIu6b1Hyq7TDX-C9phogQ',
+      customOpenAIKey: PERPLEXICA_CUSTOM_OPENAI_KEY,
       customOpenAIBaseURL: 'https://litellm.2damoon.xyz',
     },
     embeddingModel: {
